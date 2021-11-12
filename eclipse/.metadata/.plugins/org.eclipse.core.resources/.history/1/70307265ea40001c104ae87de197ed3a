@@ -1,7 +1,0 @@
-package znick_.biomesabroad.biome.decorator.base;
-
-import net.minecraft.world.biome.BiomeDecorator;
-
-public class BABiomeDecorator extends BiomeDecorator {
-
-}
