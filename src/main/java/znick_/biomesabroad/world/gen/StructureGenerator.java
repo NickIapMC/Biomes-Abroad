@@ -1,12 +1,12 @@
-package znick_.biomesabroad.biome;
+package znick_.biomesabroad.world.gen;
 
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import znick_.biomesabroad.registry.BiomesAbroadBlocks;
 import znick_.biomesabroad.util.helper.BAMathHelper;
+import znick_.biomesabroad.util.registry.BiomesAbroadBlocks;
 
 /**
  * Class with a single static method that generates a structure such as a tree

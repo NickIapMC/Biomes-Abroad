@@ -6,7 +6,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import znick_.biomesabroad.biome.BaseBiome;
 import znick_.biomesabroad.biome.winterwonderland.deco.IceTreeGenerator;
-import znick_.biomesabroad.registry.BiomesAbroadBlocks;
+import znick_.biomesabroad.util.registry.BiomesAbroadBlocks;
 
 public class WinterWonderland extends BaseBiome {
 
@@ -22,7 +22,7 @@ public class WinterWonderland extends BaseBiome {
 		this.spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySnowman.class, 12, 4, 4));
 		
 		this.addStructure(new IceTreeGenerator(), 3);
-		this.addFlower(BiomesAbroadBlocks.flowerIce, Blocks.snow, 5);
+		this.addFlower(BiomesAbroadBlocks.ICE_FLOWER, Blocks.snow, 5);
 	}
 
 }

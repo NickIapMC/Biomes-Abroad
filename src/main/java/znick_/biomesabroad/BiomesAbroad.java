@@ -12,10 +12,10 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.WorldType;
-import znick_.biomesabroad.biome.WorldTypeBiomesAbroad;
-import znick_.biomesabroad.registry.BiomesAbroadBiomes;
-import znick_.biomesabroad.registry.BiomesAbroadBlocks;
-import znick_.biomesabroad.registry.BiomesAbroadRecipes;
+import znick_.biomesabroad.util.registry.BiomesAbroadBiomes;
+import znick_.biomesabroad.util.registry.BiomesAbroadBlocks;
+import znick_.biomesabroad.util.registry.BiomesAbroadRecipes;
+import znick_.biomesabroad.world.WorldTypeBiomesAbroad;
 
 @Mod(modid = "ba", name = "Biomes Abroad", version = "1.0")
 public class BiomesAbroad {
@@ -44,7 +44,7 @@ public class BiomesAbroad {
 	public static CreativeTabs tabBiomesAbroad = new CreativeTabs("tabBiomesAbroad") {
 		@Override
 		public Item getTabIconItem() {
-			return new ItemStack(BiomesAbroadBlocks.blockCartoonGrass).getItem();
+			return new ItemStack(BiomesAbroadBlocks.CARTOON_GRASS).getItem();
 		}
 	};
 	

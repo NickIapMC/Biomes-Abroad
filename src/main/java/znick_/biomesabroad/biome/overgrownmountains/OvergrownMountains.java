@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import znick_.biomesabroad.biome.BaseBiome;
-import znick_.biomesabroad.registry.BiomesAbroadBlocks;
+import znick_.biomesabroad.util.registry.BiomesAbroadBlocks;
 
 public class OvergrownMountains extends BaseBiome {
 	
@@ -17,6 +17,6 @@ public class OvergrownMountains extends BaseBiome {
 
 		this.heightVariation = 0.7F;
 		this.enableSnow = false;
-		this.setBlocks(BiomesAbroadBlocks.blockOvergrownStone, Blocks.stone);
+		this.setBlocks(BiomesAbroadBlocks.OVERGROWN_STONE, Blocks.stone);
 	}
 }

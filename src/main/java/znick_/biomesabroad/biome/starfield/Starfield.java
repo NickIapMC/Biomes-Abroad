@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import net.minecraftforge.common.BiomeDictionary.Type;
 import znick_.biomesabroad.biome.BaseBiome;
-import znick_.biomesabroad.registry.BiomesAbroadBlocks;
+import znick_.biomesabroad.util.registry.BiomesAbroadBlocks;
 
 public class Starfield extends BaseBiome {
 	
@@ -14,10 +14,10 @@ public class Starfield extends BaseBiome {
 
 		this.heightVariation = 0.1F;
 		this.enableSnow = false;
-		this.setBlocks(BiomesAbroadBlocks.blockStargrass, BiomesAbroadBlocks.blockStardirt);
+		this.setBlocks(BiomesAbroadBlocks.STARGRASS, BiomesAbroadBlocks.STARDIRT);
 		this.waterColorMultiplier = (new Color(0, 0, 0)).getRGB();
 		
-		this.addFlower(BiomesAbroadBlocks.flowerStar, BiomesAbroadBlocks.blockStargrass, 5);
+		this.addFlower(BiomesAbroadBlocks.STARFLOWER, BiomesAbroadBlocks.STARGRASS, 5);
 	}
 
 	@Override

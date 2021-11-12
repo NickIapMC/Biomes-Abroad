@@ -5,7 +5,7 @@ import java.awt.Color;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import znick_.biomesabroad.biome.BaseBiome;
-import znick_.biomesabroad.registry.BiomesAbroadBlocks;
+import znick_.biomesabroad.util.registry.BiomesAbroadBlocks;
 
 public class CherryForest extends BaseBiome {
 	
@@ -15,10 +15,10 @@ public class CherryForest extends BaseBiome {
 
 		this.heightVariation = 0.0F;
 		this.enableSnow = false;
-		this.setBlocks(BiomesAbroadBlocks.blockCherryGrass, BiomesAbroadBlocks.blockCherryDirt);
+		this.setBlocks(BiomesAbroadBlocks.CHERRY_GRASS, BiomesAbroadBlocks.CHERRY_DIRT);
 		this.theBiomeDecorator.treesPerChunk = 8;
 		
-		this.addFlower(BiomesAbroadBlocks.plantCherryGrass, BiomesAbroadBlocks.blockCherryGrass, 64);
+		this.addFlower(BiomesAbroadBlocks.CHERRY_GRASS_PLANT, BiomesAbroadBlocks.CHERRY_GRASS, 64);
 	}
 
 	@Override

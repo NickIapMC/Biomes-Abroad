@@ -5,7 +5,7 @@ import java.awt.Color;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import znick_.biomesabroad.biome.BaseBiome;
-import znick_.biomesabroad.registry.BiomesAbroadBlocks;
+import znick_.biomesabroad.util.registry.BiomesAbroadBlocks;
 
 public class Retro extends BaseBiome {
 	
@@ -15,12 +15,12 @@ public class Retro extends BaseBiome {
 
 		this.heightVariation = 0.1F;
 		this.enableSnow = false;
-		this.setBlocks(BiomesAbroadBlocks.blockRetroGrass, BiomesAbroadBlocks.blockRetroDirt);
+		this.setBlocks(BiomesAbroadBlocks.RETRO_GRASS, BiomesAbroadBlocks.RETRO_DIRT);
 		this.theBiomeDecorator.flowersPerChunk = 0;
 		this.theBiomeDecorator.generateLakes = false;
 		this.waterColorMultiplier = (new Color(0, 0, 0)).getRGB();
 		
-		this.addFlower(BiomesAbroadBlocks.plantSpaceInvader, BiomesAbroadBlocks.blockRetroGrass, 5);
+		this.addFlower(BiomesAbroadBlocks.SPACE_INVADER, BiomesAbroadBlocks.RETRO_GRASS, 5);
 	}
 
 }

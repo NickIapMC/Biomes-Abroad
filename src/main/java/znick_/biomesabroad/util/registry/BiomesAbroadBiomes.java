@@ -1,12 +1,13 @@
-package znick_.biomesabroad.registry;
+package znick_.biomesabroad.util.registry;
 
 import java.lang.reflect.Field;
 
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 import znick_.biomesabroad.biome.BaseBiome;
-import znick_.biomesabroad.biome.BiomesAbroadGenLayer;
+import znick_.biomesabroad.biome.autumnalforest.AutumnalForest;
 import znick_.biomesabroad.biome.cartoonhills.CartoonHills;
+import znick_.biomesabroad.biome.chaoslands.ChaosLands;
 import znick_.biomesabroad.biome.cherryforest.CherryForest;
 import znick_.biomesabroad.biome.mushroomforest.MushroomForest;
 import znick_.biomesabroad.biome.overgrownmountains.OvergrownMountains;
@@ -16,10 +17,13 @@ import znick_.biomesabroad.biome.retro.Retro;
 import znick_.biomesabroad.biome.starfield.Starfield;
 import znick_.biomesabroad.biome.wasteland.Wasteland;
 import znick_.biomesabroad.biome.winterwonderland.WinterWonderland;
+import znick_.biomesabroad.world.BiomesAbroadGenLayer;
 
 public final class BiomesAbroadBiomes {
 	
+	public static final BaseBiome AUTUMNAL_FOREST = new AutumnalForest();
 	public static final BaseBiome CARTOON_HILLS = new CartoonHills();
+	public static final BaseBiome CHAOS_LANDS = new ChaosLands();
 	public static final BaseBiome CHERRY_FOREST = new CherryForest();
 	public static final BaseBiome MUSHROOM_FOREST = new MushroomForest();
 	public static final BaseBiome OVERGROWN_MOUNTAINS = new OvergrownMountains();

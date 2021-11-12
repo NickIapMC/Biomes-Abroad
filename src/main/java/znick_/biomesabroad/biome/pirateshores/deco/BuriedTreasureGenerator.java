@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.ChestGenHooks;
 import znick_.biomesabroad.biome.wasteland.Wasteland;
-import znick_.biomesabroad.registry.BiomesAbroadBlocks;
+import znick_.biomesabroad.util.registry.BiomesAbroadBlocks;
 
 public class BuriedTreasureGenerator extends WorldGenerator {
 

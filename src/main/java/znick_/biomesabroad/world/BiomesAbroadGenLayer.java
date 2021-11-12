@@ -1,4 +1,4 @@
-package znick_.biomesabroad.biome;
+package znick_.biomesabroad.world;
 
 import java.util.ArrayList;
 import java.util.List;

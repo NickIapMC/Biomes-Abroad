@@ -8,7 +8,7 @@ import znick_.biomesabroad.biome.BaseBiome;
 import znick_.biomesabroad.biome.pirateshores.deco.BuriedTreasureGenerator;
 import znick_.biomesabroad.biome.pirateshores.deco.PalmTreeGenerator;
 import znick_.biomesabroad.biome.pirateshores.deco.SandstoneSlabGenerator;
-import znick_.biomesabroad.registry.BiomesAbroadBlocks;
+import znick_.biomesabroad.util.registry.BiomesAbroadBlocks;
 
 public class PirateShores extends BaseBiome {
 	
@@ -25,7 +25,7 @@ public class PirateShores extends BaseBiome {
 		
 		this.addStructure(new PalmTreeGenerator(), 0.75F);
 		this.addStructure(new SandstoneSlabGenerator(), 1000);
-		this.addFlower(BiomesAbroadBlocks.plantDesertFan, Blocks.sand, 16);
+		this.addFlower(BiomesAbroadBlocks.DESERT_FAN, Blocks.sand, 16);
 		this.addStructure(new BuriedTreasureGenerator(), 0.02F);
 	}
 	

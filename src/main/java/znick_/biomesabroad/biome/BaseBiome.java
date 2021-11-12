@@ -10,6 +10,7 @@ import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.BiomeDictionary.Type;
+import znick_.biomesabroad.world.gen.StructureGenerator;
 
 public class BaseBiome extends BiomeGenBase {
 	

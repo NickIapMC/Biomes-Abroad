@@ -1,4 +1,4 @@
-package znick_.biomesabroad.biome;
+package znick_.biomesabroad.world;
 
 import net.minecraft.world.WorldType;
 import net.minecraft.world.gen.layer.GenLayer;
