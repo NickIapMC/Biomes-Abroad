@@ -9,6 +9,7 @@ import znick_.biomesabroad.biome.autumnalforest.AutumnalForest;
 import znick_.biomesabroad.biome.cartoonhills.CartoonHills;
 import znick_.biomesabroad.biome.chaoslands.ChaosLands;
 import znick_.biomesabroad.biome.cherryforest.CherryForest;
+import znick_.biomesabroad.biome.lushgarden.LushGarden;
 import znick_.biomesabroad.biome.mushroomforest.MushroomForest;
 import znick_.biomesabroad.biome.overgrownmountains.OvergrownMountains;
 import znick_.biomesabroad.biome.pirateshores.PirateShores;
@@ -25,6 +26,7 @@ public final class BiomesAbroadBiomes {
 	public static final BaseBiome CARTOON_HILLS = new CartoonHills();
 	public static final BaseBiome CHAOS_LANDS = new ChaosLands();
 	public static final BaseBiome CHERRY_FOREST = new CherryForest();
+	public static final BaseBiome LUSH_GARDEN = new LushGarden();
 	public static final BaseBiome MUSHROOM_FOREST = new MushroomForest();
 	public static final BaseBiome OVERGROWN_MOUNTAINS = new OvergrownMountains();
 	public static final BaseBiome PIRATE_SHORES = new PirateShores();

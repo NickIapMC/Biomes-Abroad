@@ -10,18 +10,22 @@ import znick_.biomesabroad.biome.mushroomforest.deco.block.MushroomStem;
 import znick_.biomesabroad.biome.mushroomforest.deco.block.RedMushroomBlock;
 import znick_.biomesabroad.block.BlockBase;
 import znick_.biomesabroad.block.BlockFoliage;
+import znick_.biomesabroad.block.LeafBlock;
 import znick_.biomesabroad.block.SlabBase;
 import znick_.biomesabroad.block.StairBase;
 
 public final class BiomesAbroadBlocks {
 
 	//Autumnal Forest
+	public static final Block RED_LEAVES = new LeafBlock("red_leaves", "biomes/autumnal forest");
+	public static final Block ORANGE_LEAVES = new LeafBlock("orange_leaves", "biomes/autumnal forest");
+	public static final Block YELLOW_LEAVES = new LeafBlock("yellow_leaves", "biomes/autumnal forest");
 	
 	//Wasteland
 	public static final Block DEAD_GRASS = new BlockBase("blockDeadGrass", "ground/dead", 0.6F, Material.grass, Block.soundTypeGrass, 0, true, false);
 	public static final Block TUMBLEWEED = new BlockBase("blockTumbleweed", "bush", 0.2F, Material.leaves, Block.soundTypeGrass, 0, false, false);
 	public static final Block DEAD_LOG = new BlockBase("blockDeadLog", "tree/dead/log", 2.0F, Material.wood, Block.soundTypeWood, 0, true, true);
-	public static final Block DEAD_LEAVES = new BlockBase("blockDeadLeaves", "tree/dead/leaves" , 0.2F, Material.leaves, Block.soundTypeGrass, 0, false, false);
+	public static final Block DEAD_LEAVES = new LeafBlock("blockDeadLeaves", "tree/dead/leaves");
 	public static final Block DEAD_PLANKS = new BlockBase("blockDeadPlanks", "cosmetic/dead", 2.0F, Material.wood, Block.soundTypeWood, 0, true, false);
 	public static final Block DEAD_PLANKS_SLAB = new SlabBase(BiomesAbroadBlocks.DEAD_PLANKS, "slabDeadPlanks","cosmetic/dead", "blockDeadPlanks", 2.0F);
 	public static final Block DEAD_PLANKS_STAIRS = new StairBase(DEAD_PLANKS, "stairDeadPlanks");
@@ -30,7 +34,7 @@ public final class BiomesAbroadBlocks {
 	public static final Block CARTOON_GRASS = new BlockBase("blockCartoonGrass", "ground/cartoon", 0.6F, Material.grass, Block.soundTypeGrass, 0, true, true);
 	public static final Block CARTOON_DIRT = new BlockBase("blockCartoonDirt", "ground/cartoon", 0.6F, Material.grass, Block.soundTypeGrass, 0, true, false);
 	public static final Block CARTOON_LOG = new BlockBase("blockCartoonLog", "tree/cartoon/log", 2.0F, Material.wood, Block.soundTypeWood, 0, true, true);
-	public static final Block CARTOON_LEAVES = new BlockBase("blockCartoonLeaves", "tree/cartoon/leaves" , 0.2F, Material.leaves, Block.soundTypeGrass, 0, false, false);
+	public static final Block CARTOON_LEAVES = new LeafBlock("blockCartoonLeaves", "tree/cartoon/leaves");
 	public static final Block CARTOON_GRASS_PLANT = new BlockFoliage(0, "foliage/cartoon", "plantCartoonGrass", BiomesAbroadBlocks.CARTOON_GRASS);
 	public static final Block CARTOON_PLANKS = new BlockBase("blockCartoonPlanks", "cosmetic/cartoon", 2.0F, Material.wood, Block.soundTypeWood, 0, true, false);
 	public static final Block CARTOON_PLANKS_SLAB = new SlabBase(BiomesAbroadBlocks.CARTOON_PLANKS, "slabCartoonPlanks","cosmetic/cartoon", "blockCartoonPlanks", 2.0F);

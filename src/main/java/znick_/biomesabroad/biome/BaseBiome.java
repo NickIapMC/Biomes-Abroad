@@ -56,12 +56,16 @@ public class BaseBiome extends BiomeGenBase {
 	}
 	
 	protected void addFlower(final Block toGenerate, final Block generateIn, float chance) {
+		this.addFlower(toGenerate, 0, generateIn, chance); 
+	}
+	
+	protected void addFlower(final Block toGenerate, final int meta, final Block generateIn, float chance) {
 		this.structures.put(new WorldGenerator() {
 			@Override
 			public boolean generate(World world, Random rand, int x, int y, int z) {
 				if (world.getBlock(x, y - 1, z) != null) {
 					if (toGenerate.canPlaceBlockAt(world, x, y, z) && world.getBlock(x, y - 1, z) == generateIn) {
-						world.setBlock(x, y, z, toGenerate, 0, 3);
+						world.setBlock(x, y, z, toGenerate, meta, 3);
 					}
 				}
 				return true;
