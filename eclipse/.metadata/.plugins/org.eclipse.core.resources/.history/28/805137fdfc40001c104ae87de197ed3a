@@ -1,0 +1,53 @@
+package znick_.biomesabroad.biome;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import net.minecraft.block.Block;
+import net.minecraft.world.biome.BiomeDecorator;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.BiomeDictionary.Type;
+
+public class BaseBiome extends BiomeGenBase {
+	
+	private static int nextID = 200;
+	
+	private final Type type;
+	private final Class<? extends BiomeDecorator> decoratorClass;
+	private final Map<WorldGenerator, Float> structures = new LinkedHashMap<WorldGenerator, Float>();
+	
+	public BaseBiome(Class<? extends BiomeDecorator> decorator, Type type) {
+		super(getNextID(), true);
+		this.type = type;
+		this.decoratorClass = decorator;
+	}
+	
+	@Override
+	public BiomeDecorator createBiomeDecorator() {
+        try {return this.getModdedBiomeDecorator(this.decoratorClass.newInstance());}
+        catch(Exception e) {throw new RuntimeException(e);}
+    }
+	
+	public Type getType() {
+		return this.type;
+	}
+	
+	private static int getNextID() {
+		return nextID++;
+	}
+	
+	protected void setBlocks(Block top, Block fill) {
+		this.topBlock = top;
+		this.fillerBlock = fill;
+	}
+	
+	protected void addStructure(Block toGenerate, Block generateIn, float chance) {
+		
+	}
+	
+	protected void addStructure(WorldGenerator structure, float chance) {
+		
+	}
+
+}

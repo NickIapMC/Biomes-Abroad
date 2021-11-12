@@ -1,0 +1,11 @@
+package znick_.biomesabroad.biome.base;
+
+import net.minecraft.world.biome.BiomeDecorator;
+
+public class OverworldBiome extends BaseBiome {
+
+	public OverworldBiome(int biomeID, BiomeDecorator decorator, boolean register) {
+		super(biomeID, decorator, register);
+	}
+
+}

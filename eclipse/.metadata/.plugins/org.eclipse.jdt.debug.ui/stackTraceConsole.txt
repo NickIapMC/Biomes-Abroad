@@ -1,0 +1,6 @@
+protected BlockGrass()
+    {
+        super(Material.grass);
+        this.setTickRandomly(true);
+        this.setCreativeTab(CreativeTabs.tabBlock);
+    }

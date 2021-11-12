@@ -1,0 +1,15 @@
+package znick_.biomesabroad.block;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.IGrowable;
+import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
+
+public class GrassBlock extends Block implements IGrowable {
+
+	protected GrassBlock() {
+        super(Material.grass);
+        this.setTickRandomly(true);
+        this.setCreativeTab(CreativeTabs.tabBlock);
+    }
+}

@@ -1,0 +1,24 @@
+package znick_.biomesabroad.generation.grass;
+
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenerator;
+import znick_.biomesabroad.biome.biomes.BiomeWasteland;
+import znick_.biomesabroad.util.manager.BiomesAbroadBlocks;
+
+public class GrassCartoon extends WorldGenerator {
+	
+	public boolean generate(World world, Random rand, int x, int y, int z) {
+
+		if (world.getBlock(x, y - 1, z) != null) {
+			if (BiomesAbroadBlocks.plantCartoonGrass.canPlaceBlockAt(world, x, y, z) && world.getBlock(x, y - 1, z) == BiomesAbroadBlocks.blockCartoonGrass) {
+				world.setBlock(x, y, z, BiomesAbroadBlocks.plantCartoonGrass, 0, 3);
+			}
+		}
+
+		return true;
+	}
+
+}

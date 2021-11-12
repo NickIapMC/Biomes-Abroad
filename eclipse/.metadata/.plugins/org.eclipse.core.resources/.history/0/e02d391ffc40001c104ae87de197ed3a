@@ -1,0 +1,67 @@
+package znick_.biomesabroad.util.manager;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+
+/**Class where all custom crafting recipes are created and registered.
+ * 
+ * <dl>
+ * <dt><strong>Static Methods</strong><dt>
+ * <dd>createShapedRecipes()</dd>
+ *  <dd>createShapelessRecipes()</dd>
+ *  <dd>registerShapedRecipes()</dd>
+ *  <dd>registerShapelessRecipes()</dd>
+*/
+public final class RecipeManager {
+
+	//Shapeless
+	public static Object recipeBlockDeadPlanks;
+	public static Object recipeBlockCartoonPlanks;
+	public static Object recipeDirtFromCartoon;
+	public static Object recipeDirtFromRetro;
+	public static Object recipeDirtFromDead;
+	public static Object recipeDirtFromStar;
+	public static Object[] recipeBlockOvergrownStone;
+
+	//Shaped
+	public static Object[] recipeStairDeadPlanks;
+	public static Object[] recipeStairCartoonPlanks;
+
+	public static void createShapedRecipes() {
+		recipeStairDeadPlanks = new Object[] { "P  ", "PP ", "PPP", 'P', BiomesAbroadBlocks.blockDeadPlanks };
+		recipeStairCartoonPlanks = new Object[] { "P  ", "PP ", "PPP", 'P', BiomesAbroadBlocks.blockCartoonPlanks };
+	}
+
+	public static void createShapelessRecipes() {
+		recipeBlockDeadPlanks = BiomesAbroadBlocks.blockDeadLog;
+		recipeBlockCartoonPlanks = BiomesAbroadBlocks.blockCartoonLog;
+		recipeBlockOvergrownStone = new Object[] { Blocks.stone, Blocks.grass };
+		recipeDirtFromCartoon = BiomesAbroadBlocks.blockCartoonDirt;
+		recipeDirtFromRetro = BiomesAbroadBlocks.blockRetroDirt;
+		recipeDirtFromDead = BiomesAbroadBlocks.blockDeadGrass;
+		recipeDirtFromStar = BiomesAbroadBlocks.blockStardirt;
+	}
+
+	public static void registerShapedRecipes() {
+		GameRegistry.addRecipe(new ItemStack(BiomesAbroadBlocks.stairDeadPlanks, 4), recipeStairDeadPlanks);
+		GameRegistry.addRecipe(new ItemStack(BiomesAbroadBlocks.stairCartoonPlanks, 4), recipeStairCartoonPlanks);
+	}
+	
+	public static void registerShapelessRecipes() {
+		GameRegistry.addShapelessRecipe(new ItemStack(BiomesAbroadBlocks.blockDeadPlanks, 4), recipeBlockDeadPlanks);
+		GameRegistry.addShapelessRecipe(new ItemStack(BiomesAbroadBlocks.blockCartoonPlanks, 4), recipeBlockCartoonPlanks);
+		GameRegistry.addShapelessRecipe(new ItemStack(BiomesAbroadBlocks.blockOvergrownStone, 2), recipeBlockOvergrownStone);
+		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.dirt), recipeDirtFromCartoon);
+		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.dirt), recipeDirtFromRetro);
+		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.dirt), recipeDirtFromDead);
+		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.dirt), recipeDirtFromStar);
+	}
+	
+	public static void createRecipes() {
+		RecipeManager.createShapedRecipes();
+		RecipeManager.createShapelessRecipes();
+		RecipeManager.registerShapedRecipes();
+		RecipeManager.registerShapelessRecipes();
+	}
+}

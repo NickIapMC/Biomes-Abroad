@@ -1,0 +1,58 @@
+package znick_.biomesabroad.registry;
+
+import java.lang.reflect.Field;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeManager;
+import znick_.biomesabroad.biome.BaseBiome;
+import znick_.biomesabroad.biome.BiomesAbroadGenLayer;
+import znick_.biomesabroad.biome.biomes.BiomeBase;
+import znick_.biomesabroad.biome.biomes.BiomeRainbowForest;
+import znick_.biomesabroad.biome.biomes.BiomeRetro;
+import znick_.biomesabroad.biome.biomes.BiomeWinterWonderland;
+import znick_.biomesabroad.biome.cartoonhills.CartoonHills;
+import znick_.biomesabroad.biome.cherryforest.CherryForest;
+import znick_.biomesabroad.biome.overgrownmountains.OvergrownMountains;
+import znick_.biomesabroad.biome.pirateshores.PirateShores;
+import znick_.biomesabroad.biome.starfield.Starfield;
+import znick_.biomesabroad.biome.wasteland.Wasteland;
+
+public final class BiomesAbroadBiomes {
+	
+	public static final BaseBiome CARTOON_HILLS = new CartoonHills();
+	public static final BaseBiome CHERRY_FOREST = new CherryForest();
+	public static final BaseBiome OVERGROWN_MOUNTAINS = new OvergrownMountains();
+	public static final BaseBiome PIRATE_SHORES = new PirateShores();
+	public static final BaseBiome STARFIELD = new Starfield();
+	public static final BaseBiome WASTELAND = new Wasteland();
+	public static BiomeBase biomeRetro;
+	public static BiomeBase biomeRainbowForest;
+	public static BiomeBase biomeWinterWonderland;
+	
+	private static final Set<BaseBiome> BIOMES = new LinkedHashSet<BaseBiome>();
+
+	public static void createCustomBiomes() throws Exception {		
+		biomeRetro = new BiomeRetro(204);
+		biomeRainbowForest = new BiomeRainbowForest(205);
+		biomeWinterWonderland = new BiomeWinterWonderland(207);
+	}
+	
+	public static void init() {
+		try {
+			for (Field field : BiomesAbroadBiomes.class.getDeclaredFields()) {
+				if (field.get(null) instanceof BaseBiome) {
+					BIOMES.add((BaseBiome) field.get(null));
+				}
+			}
+		} catch(Exception e) {throw new RuntimeException(e);}
+		
+		for (BaseBiome biome : BIOMES) {
+			BiomeDictionary.registerBiomeType(biome, biome.getType());
+			BiomesAbroadGenLayer.addBiome(biome);
+			BiomeManager.addSpawnBiome(biome);
+		}
+	}
+	
+}

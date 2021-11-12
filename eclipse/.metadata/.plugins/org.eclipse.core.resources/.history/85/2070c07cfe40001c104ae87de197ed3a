@@ -1,0 +1,69 @@
+package znick_.biomesabroad.biome.cartoonhills;
+
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenerator;
+import znick_.biomesabroad.biome.biomes.BiomeWasteland;
+import znick_.biomesabroad.util.manager.BiomesAbroadBlocks;
+
+public class CartoonTree extends WorldGenerator {
+
+	/**
+	 * @param world - the world for the structure to generate in.
+	 * @param rand - and instance of java's Random class.
+	 * @param x - the x coordinate to generate the structure at. Type: int
+	 * @param y - the y coordinate to generate the structure at. Type: int
+	 * @param z - the z coordinate to generate the structure at. Type: int
+	 */
+	public boolean generate(World world, Random rand, int x, int y, int z) {
+
+		if (world.getBlock(x, y - 1, z) != null) {
+			if (BiomesAbroadBlocks.blockCartoonLog.canPlaceBlockAt(world, x, y, z) && world.getBlock(x, y - 1, z) == BiomesAbroadBlocks.blockCartoonGrass) {
+				this.makeTree(world, x, y, z);
+			}
+		}
+
+		return true;
+	}
+	
+	/**
+	 * generates the tree at the given coordinates
+	 * 
+	 * @param world - the world for the structure to generate in. Type: World (net.minecraft.world.World)
+	 * @param x - the x coordinate to generate the structure at. Type: int
+	 * @param y - the y coordinate to generate the structure at. Type: int
+	 * @param z - the z coordinate to generate the structure at. Type: int
+	 * 
+	 * @return void
+	 */
+	public void makeTree(World world, int x, int y, int z) {
+
+		for (int i = 0; i < 5; i++) {
+			world.setBlock(x, y + i, z, BiomesAbroadBlocks.blockCartoonLog, 0, 3);
+		}
+
+		for (int i = -1; i <= 1; i++) {
+			for (int j = -1; j <= 1; j++) {
+				world.setBlock(x + i, y + 5, z + j, BiomesAbroadBlocks.blockCartoonLeaves, 0, 3);
+			}
+		}
+
+		for (int i = -1; i <= 1; i++) {
+			for (int j = -1; j <= 1; j++) {
+				if (!(i == 0 && j == 0))
+					world.setBlock(x + i, y + 4, z + j, BiomesAbroadBlocks.blockCartoonLeaves, 0, 3);
+			}
+		}
+
+		for (int i = -1; i <= 1; i++) {
+			for (int j = -1; j <= 1; j++) {
+				if (!(i == 0 && j == 0))
+					world.setBlock(x + i, y + 3, z + j, BiomesAbroadBlocks.blockCartoonLeaves, 0, 3);
+			}
+		}
+
+	}
+
+}

@@ -1,0 +1,79 @@
+package znick_.biomesabroad.biome;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeDecorator;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.BiomeDictionary.Type;
+
+public class BaseBiome extends BiomeGenBase {
+	
+	private static int nextID = 200;
+	private static final Map<String, Class<? extends BiomeDecorator>> DECORATORS = new HashMap<String, Class<? extends BiomeDecorator>>();
+	
+	private final Type type;
+	private final Map<WorldGenerator, Float> structures = new LinkedHashMap<WorldGenerator, Float>();
+	
+	public BaseBiome(Class<? extends BiomeDecorator> decorator, Type type, String name) {
+		super(getNextID(name, decorator), true);
+		this.setBiomeName(name);
+		this.type = type;
+	}
+	
+	@Override
+	public BiomeDecorator createBiomeDecorator() {
+		System.out.println(DECORATORS.toString());
+		System.out.println(DECORATORS.get(this.biomeName));
+        try {return this.getModdedBiomeDecorator(DECORATORS.get(this.biomeName).newInstance());}
+        catch(IllegalAccessException e | InstantiationException e) {throw new RuntimeException(e);}
+    }
+	
+	public Type getType() {
+		return this.type;
+	}
+	
+	private static int getNextID(String name, Class<? extends BiomeDecorator> clazz) {
+		DECORATORS.put(name, clazz);
+		return nextID++;
+	}
+	
+	protected void setBlocks(Block top, Block fill) {
+		this.topBlock = top;
+		this.fillerBlock = fill;
+	}
+	
+	@Override
+	public void decorate(World world, Random rand, int chunkX, int chunkZ) {
+		super.decorate(world, rand, chunkX, chunkZ);
+		
+		for (Map.Entry<WorldGenerator, Float> entry : this.structures.entrySet()) {
+			StructureGenerator.generateStructure(world, rand, chunkX, chunkZ, this.rootHeight, entry.getKey(), entry.getValue()); 
+		}
+	}
+	
+	protected void addStructure(final Block toGenerate, final Block generateIn, float chance) {
+		this.structures.put(new WorldGenerator() {
+			@Override
+			public boolean generate(World world, Random rand, int x, int y, int z) {
+				if (world.getBlock(x, y - 1, z) != null) {
+					if (toGenerate.canPlaceBlockAt(world, x, y, z) && world.getBlock(x, y - 1, z) == generateIn) {
+						world.setBlock(x, y, z, toGenerate, 0, 3);
+					}
+				}
+				return true;
+			}
+			
+		}, chance);
+	}
+	
+	protected void addStructure(WorldGenerator structure, float chance) {
+		this.structures.put(structure, chance);
+	}
+
+}

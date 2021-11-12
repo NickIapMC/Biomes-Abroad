@@ -1,0 +1,35 @@
+tile.blockDeadGrass.name=Dead Grass
+tile.blockTumbleweed.name=Tumbleweed
+tile.blockDeadLog.name=Dead Log
+tile.blockDeadLeaves.name=Dead Leaves
+tile.blockDeadPlanks.name=Dead Planks
+tile.stairDeadPlanks.name=Dead Stairs
+tile.slabDeadPlanks.name=Dead Planks Slab
+
+tile.blockCartoonGrass.name=Cartoon Grass
+tile.blockCartoonDirt.name=Cartoon Dirt
+tile.blockCartoonLog.name=Cartoon Log
+tile.blockCartoonLeaves.name=Cartoon Leaves
+tile.plantCartoonGrass.name=Cartoon Grass
+tile.blockCartoonPlanks.name=Cartoon Planks
+tile.stairCartoonPlanks.name=Cartoon Stairs
+tile.slabCartoonPlanks.name=Cartoon Planks Slab
+
+tile.blockRetroGrass.name=Retro Grass
+tile.blockRetroDirt.name=Retro Dirt
+tile.plantSpaceInvader.name=Space Invader
+
+tile.blockOvergrownStone.name=Overgrown Stone
+
+tile.flowerIce.name=Ice Flower
+
+tile.plantDesertFan.name=Desert Fan
+
+tile.blockStargrass.name=Stargrass
+tile.blockStardirt.name=Stardirt
+tile.flowerStar.name=Starflower
+
+item.biome_book.name=Biome Log
+
+itemGroup.tabBiomesAbroad=Biomes Abroad
+generator.Biomes Abroad=Biomes Abroad

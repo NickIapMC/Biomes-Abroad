@@ -1,0 +1,32 @@
+package znick_.biomesabroad.util.helper;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+import net.minecraft.world.biome.BiomeGenBase;
+import znick_.biomesabroad.biome.BiomesAbroadGenLayer;
+import znick_.biomesabroad.util.manager.BiomesAbroadBiomes;
+
+public class FieldHelper {
+
+	public static void invokeMethodOnAllFields(Class inputClass, Class fieldType, Method function) throws Exception {
+		Field[] fields = inputClass.newInstance().getClass().getDeclaredFields();
+		for (Field field : fields) {
+			
+			System.out.println("");
+			System.out.println(field.getName() + " is checking for instance of " + fieldType.getSimpleName() + " for the method " + function.getName());
+			
+			if (fieldType.isInstance(field.get(null))) {
+				System.out.println(field.getName() + " is an instance of " + fieldType.getSimpleName() + " for the method " + function.getName());
+				System.out.println("");
+				
+				Object localField = field.get(null);
+				fieldType.cast(localField);
+				function.invoke(null, localField);
+			}
+			
+		}
+	}
+
+}

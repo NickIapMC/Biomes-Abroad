@@ -1,0 +1,26 @@
+package znick_.biomesabroad.biome.base;
+
+import net.minecraft.world.biome.BiomeDecorator;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.BiomeDictionary.Type;
+
+public class BaseBiome extends BiomeGenBase {
+	
+	private static int nextID = 200;
+	
+	private final Type type;
+	
+	public BaseBiome(Class<? extends BiomeDecorator> decorator, Type type) {
+		super(getNextID(), true);
+		this.type = type;
+	}
+	
+	public Type getType() {
+		return this.type;
+	}
+	
+	private static int getNextID() {
+		return nextID++;
+	}
+
+}

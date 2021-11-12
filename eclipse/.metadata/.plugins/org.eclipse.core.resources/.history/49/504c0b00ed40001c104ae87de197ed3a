@@ -1,0 +1,36 @@
+package znick_.biomesabroad.biome.biomes;
+
+import java.util.Random;
+
+import net.minecraft.world.World;
+import net.minecraftforge.common.BiomeDictionary.Type;
+import znick_.biomesabroad.biome.base.BaseBiome;
+import znick_.biomesabroad.biome.decorator.DecoratorCartoonHills;
+import znick_.biomesabroad.generation.StructureGenerator;
+import znick_.biomesabroad.generation.grass.GrassCartoon;
+import znick_.biomesabroad.generation.tree.TreeCartoon;
+import znick_.biomesabroad.util.manager.BlockManager;
+
+public class BiomeCartoonHills extends BaseBiome {
+	
+	public BiomeCartoonHills() {
+		super(DecoratorCartoonHills.class, Type.PLAINS);
+		this.setBiomeName("Cartoon Hills");
+
+		this.heightVariation = 0.4F;
+		this.enableSnow = false;
+		this.topBlock = BlockManager.blockCartoonGrass;
+		this.fillerBlock = BlockManager.blockCartoonDirt;
+		this.theBiomeDecorator.generateLakes = false;
+		this.theBiomeDecorator.flowersPerChunk = 0;
+	}
+
+	@Override
+	public void decorate(World world, Random rand, int chunkX, int chunkZ) {
+		super.decorate(world, rand, chunkX, chunkZ);
+		
+		StructureGenerator.generateStructure(world, rand, chunkX, chunkZ, this.rootHeight, new TreeCartoon(), 0.75F);
+		StructureGenerator.generateStructure(world, rand, chunkX, chunkZ, this.rootHeight, new GrassCartoon(), 64);
+	}
+
+}
