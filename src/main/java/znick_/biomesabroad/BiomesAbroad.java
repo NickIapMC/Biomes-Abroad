@@ -1,7 +1,5 @@
 package znick_.biomesabroad;
 
-import java.lang.reflect.InvocationTargetException;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -12,9 +10,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.WorldType;
-import znick_.biomesabroad.util.registry.BiomesAbroadBiomes;
-import znick_.biomesabroad.util.registry.BiomesAbroadBlocks;
-import znick_.biomesabroad.util.registry.BiomesAbroadRecipes;
+import znick_.biomesabroad.biome.BiomesAbroadBiomes;
+import znick_.biomesabroad.block.BiomesAbroadBlocks;
+import znick_.biomesabroad.util.helper.FileHelper;
 import znick_.biomesabroad.world.WorldTypeBiomesAbroad;
 
 @Mod(modid = "ba", name = "Biomes Abroad", version = "1.0")
@@ -33,6 +31,7 @@ public class BiomesAbroad {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
+		//FileHelper.generateLangFile();
 		BiomesAbroadBlocks.init();
 		BiomesAbroadBiomes.init();
 	}
