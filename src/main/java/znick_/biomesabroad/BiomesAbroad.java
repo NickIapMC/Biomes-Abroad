@@ -28,6 +28,7 @@ public class BiomesAbroad {
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		
 	}
 
 	@EventHandler

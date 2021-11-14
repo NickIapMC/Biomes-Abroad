@@ -21,8 +21,8 @@ public class BlockFoliage extends BlockFlower {
 	public String category;
 	public Block ground;
 	
-	public BlockFoliage(int id, String folder, String name, Block ground) {
-		super(id);
+	public BlockFoliage(String folder, String name, Block ground) {
+		super(0);
 		this.setBlockName(name);
 		this.name = name;
 		this.category = folder;

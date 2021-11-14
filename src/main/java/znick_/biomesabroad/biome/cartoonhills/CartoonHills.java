@@ -19,6 +19,7 @@ public class CartoonHills extends BaseBiome {
 		
 		this.addStructure(new CartoonTreeGenerator(), 0.75F);
 		this.addFlower(BiomesAbroadBlocks.CARTOON_GRASS_PLANT, BiomesAbroadBlocks.CARTOON_GRASS, 64);
+		this.addFlower(BiomesAbroadBlocks.CARTOON_POPPY, BiomesAbroadBlocks.CARTOON_GRASS, 2);
 	}
 
 }

@@ -15,10 +15,11 @@ public class CartoonTreeGenerator extends WorldGenerator {
 		if (world.getBlock(x, y - 1, z) != null) {
 			if (BiomesAbroadBlocks.CARTOON_LOG.canPlaceBlockAt(world, x, y, z) && world.getBlock(x, y - 1, z) == BiomesAbroadBlocks.CARTOON_GRASS) {
 				this.makeTree(world, x, y, z);
+				return true;
 			}
 		}
 
-		return true;
+		return false;
 	}
 	
 	public void makeTree(World world, int x, int y, int z) {

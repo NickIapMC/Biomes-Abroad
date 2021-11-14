@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -55,10 +56,25 @@ public class BaseBiome extends BiomeGenBase {
 		this.fillerBlock = fill;
 	}
 	
-	protected void addFlower(final Block toGenerate, final Block generateIn, float chance) {
+	
+	protected void addFlower(Block toGenerate, float chance) {
+		this.addFlower(toGenerate, Blocks.grass, chance);
+	}
+	
+	protected void addFlower(Block toGenerate, Block generateIn, float chance) {
 		this.addFlower(toGenerate, 0, generateIn, chance); 
 	}
 	
+	/**
+	 * Adds a block to be randomly generated on the surface of the biome. Usually used for flowers, but can be any
+	 * single block structure. 
+	 * 
+	 * @param toGenerate The block to generate
+	 * @param meta The metadata value of the block
+	 * @param generateIn The block to generate on (typically grass, but some biomes have different ground blocks)
+	 * @param chance The chance to generate one in each chunk if less than 1, or the number to generate per chunk
+	 * if greater than or equal to 1.
+	 */
 	protected void addFlower(final Block toGenerate, final int meta, final Block generateIn, float chance) {
 		this.structures.put(new WorldGenerator() {
 			@Override

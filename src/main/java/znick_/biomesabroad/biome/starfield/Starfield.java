@@ -12,7 +12,7 @@ public class Starfield extends BaseBiome {
 		super(StarfieldDecorator.class, Type.PLAINS);
 		this.setBiomeName("Starfield");
 
-		this.heightVariation = 0.1F;
+		this.heightVariation = 0.05F;
 		this.enableSnow = false;
 		this.setBlocks(BiomesAbroadBlocks.STARGRASS, BiomesAbroadBlocks.STARDIRT);
 		this.waterColorMultiplier = (new Color(0, 0, 0)).getRGB();
@@ -22,7 +22,7 @@ public class Starfield extends BaseBiome {
 
 	@Override
 	public int getSkyColorByTemp(float temp) {
-		return (new Color(0, 0, 0)).getRGB();
+		return Color.BLACK.getRGB();
 	}
 
 }
