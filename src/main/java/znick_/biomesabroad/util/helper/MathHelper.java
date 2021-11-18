@@ -1,10 +1,9 @@
 package znick_.biomesabroad.util.helper;
 
-public class BAMathHelper {
+public class MathHelper {
 
 	public static double map(double n, double lower, double higher, double newLower, double newHigher) {
 		if (n >= lower && n <= higher) {
-			
 			double relativeN = n - lower;
 			double interval = higher - lower;
 			double percent = relativeN/interval;
@@ -14,10 +13,7 @@ public class BAMathHelper {
 			
 			return newN;
 			
-		} else {
-			throw new ArithmeticException("Number to map must be within the interval!");
-		}
-		
+		} else throw new ArithmeticException("Number to map must be within the interval!");
 	}
 	
 }

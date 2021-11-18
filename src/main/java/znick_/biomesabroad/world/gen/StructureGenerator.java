@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import znick_.biomesabroad.block.BiomesAbroadBlocks;
-import znick_.biomesabroad.util.helper.BAMathHelper;
+import znick_.biomesabroad.util.helper.MathHelper;
 
 public class StructureGenerator {
 
@@ -25,7 +25,7 @@ public class StructureGenerator {
 		if (chance < 1) {
 			if (Math.random() < chance) {
 				int randX = chunkX + rand.nextInt(8) - rand.nextInt(16);
-				int y = (int) (BAMathHelper.map(rootHeight, -2, 2, 0, 128));
+				int y = (int) (MathHelper.map(rootHeight, -2, 2, 0, 128));
 				int randZ = chunkZ + rand.nextInt(8) - rand.nextInt(16);
 
 				for (int i = -100; i < 100; i++) {
@@ -34,7 +34,7 @@ public class StructureGenerator {
 			}
 		} else {
 			for (int j = 0; j < chance; j++) {
-				int y = (int) (BAMathHelper.map(rootHeight, -2, 2, 0, 128));
+				int y = (int) (MathHelper.map(rootHeight, -2, 2, 0, 128));
 				int randX = chunkX + rand.nextInt(8) - rand.nextInt(16);
 				int randZ = chunkZ + rand.nextInt(8) - rand.nextInt(16);
 				

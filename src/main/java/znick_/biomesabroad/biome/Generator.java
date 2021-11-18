@@ -1,4 +1,4 @@
-package znick_.biomesabroad.api;
+package znick_.biomesabroad.biome;
 
 import net.minecraft.world.World;
 
