@@ -13,8 +13,17 @@ import znick_.biomesabroad.BiomesAbroad;
 import znick_.biomesabroad.block.BiomesAbroadBlocks;
 
 public class FileHelper {
-
+ 
+	/**
+	 * Generates the {@code en_US.lang} file for the mod. Only generates if {@link SystemHelper#isRunningInIDE()} returns true,
+	 * as embedded files are not editable in the final JAR.
+	 */
 	public static void generateLangFile() {
+		if (!SystemHelper.isRunningInIDE()) {
+			System.out.print("Game running in JAR... skipping en_US.lang file generation");
+			return;
+		}
+		System.out.println("Game running in IDE... generating en_US.lang file");
 		try {
 			File langFile = new File(BiomesAbroad.class.getResource("/assets/ba/lang/en_US.lang").toURI().getPath());
 			StringBuilder sb = new StringBuilder();

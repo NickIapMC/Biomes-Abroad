@@ -31,7 +31,7 @@ public class BiomesAbroad {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		//FileHelper.generateLangFile();
+		FileHelper.generateLangFile();
 		BiomesAbroadBlocks.init();
 		BiomesAbroadBiomes.init();
 	}
