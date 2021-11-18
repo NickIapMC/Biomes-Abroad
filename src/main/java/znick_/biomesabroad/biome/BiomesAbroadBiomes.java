@@ -21,22 +21,42 @@ import znick_.biomesabroad.biome.wasteland.WastelandBiome;
 import znick_.biomesabroad.biome.winterwonderland.WinterWonderlandBiome;
 import znick_.biomesabroad.world.BiomesAbroadGenLayer;
 
-public final class BiomesAbroadBiomes {
+/**
+ * Class of biomes in Biomes Abroad. Creates and registers all custom biomes.
+ * 
+ * @author zNick_
+ */
+public class BiomesAbroadBiomes {
 	
+	/**The "Autumnal Forest" biome.*/
 	public static final BaseBiome AUTUMNAL_FOREST = new AutumnalForestBiome();
+	/**The "Cartoon Hills" biome.*/
 	public static final BaseBiome CARTOON_HILLS = new CartoonHillsBiome();
+	/**The "Chaos Lands" biome.*/
 	public static final BaseBiome CHAOS_LANDS = new ChaosLandsBiome();
+	/**The "Cherry Forest" biome.*/
 	public static final BaseBiome CHERRY_FOREST = new CherryForestBiome();
+	/**The "Cypress Cliffs" biome.*/
 	public static final BaseBiome CYPRESS_CLIFFS = new CypressCliffsBiome();
+	/**The "Lush Garden" biome.*/
 	public static final BaseBiome LUSH_GARDEN = new LushGardenBiome();
+	/**The "Mushroom Forest" biome.*/
 	public static final BaseBiome MUSHROOM_FOREST = new MushroomForestBiome();
+	/**The "Overgrown Mountains" biome.*/
 	public static final BaseBiome OVERGROWN_MOUNTAINS = new OvergrownMountainsBiome();
+	/**The "Pirate Shores" biome.*/
 	public static final BaseBiome PIRATE_SHORES = new PirateShoresBiome();
+	/**The "Rainbow Forest" biome.*/
 	public static final BaseBiome RAINBOW_FOREST = new RainbowForestBiome();
+	/**The "Retro" biome.*/
 	public static final BaseBiome RETRO = new RetroBiome();
+	/**The "Snowy Peaks" biome.*/
 	public static final BaseBiome SNOWY_PEAKS = new SnowyPeaksBiome();
+	/**The "Starfield" biome.*/
 	public static final BaseBiome STARFIELD = new StarfieldBiome();
+	/**The "Wasteland" biome.*/
 	public static final BaseBiome WASTELAND = new WastelandBiome();
+	/**The "Winter Wonderland" biome.*/
 	public static final BaseBiome WINTER_WONDERLAND = new WinterWonderlandBiome();
 	
 	/**

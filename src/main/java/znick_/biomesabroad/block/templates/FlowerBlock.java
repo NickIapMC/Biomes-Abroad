@@ -18,14 +18,12 @@ public class FlowerBlock extends BlockFlower {
 
 	public String name;
 	public String category;
-	public Block ground;
 	
-	public FlowerBlock(String folder, String name, Block ground) {
+	public FlowerBlock(String name, String folder) {
 		super(0);
 		this.setBlockName(name);
 		this.name = name;
 		this.category = folder;
-		this.ground = ground;
 		this.setStepSound(soundTypeGrass);
 		this.setCreativeTab(BiomesAbroad.CREATIVE_TAB);
 		this.setBlockTextureName(BiomesAbroad.MODID + ":" + folder + "/" + name);
@@ -52,7 +50,7 @@ public class FlowerBlock extends BlockFlower {
 	
 	@Override
 	protected boolean canPlaceBlockOn(Block block) {
-        return block == this.ground;
+        return true;
     }
 
 }

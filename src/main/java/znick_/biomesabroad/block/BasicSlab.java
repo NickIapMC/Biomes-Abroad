@@ -1,35 +1,48 @@
 package znick_.biomesabroad.block;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import znick_.biomesabroad.BiomesAbroad;
+import znick_.biomesabroad.util.helper.MinecraftHelper;
+import znick_.biomesabroad.util.recipe.ShapedCraftable;
 
 /**
- * The base class for all custom slabs added by Biomes Abroad
- * 
- * <dl>
- * <dt><strong>Superclasses</strong></dt>
- * <dd><strong>BlockSlab</strong> (net.minecraft.block.BlockSlab)</dd>
- * <dd><strong>Block</strong> (net.minecraft.block.Block)</dd>
+ * The base class for all custom slabs added by Biomes Abroad.
  */
-public class BasicSlab extends BlockSlab {
+public class BasicSlab extends BlockSlab implements ShapedCraftable {
 
-	public Block block;
+	/**The block that represents the "double" full block version of this slab.*/
+	private final Block block;
+	/**The recipe map for this slab*/
+	private final Map<Object[], Integer> recipes = new HashMap<Object[], Integer>();
 	
-	public BasicSlab(Block block, String name, String folder, float hardness) {
+	/**
+	 * Creates a new basic slab block with the given properties.
+	 * 
+	 * @param block The "double" full block version of this block.
+	 * @param name The name of this block
+	 * @param folder The location of the texture of the block
+	 */
+	public BasicSlab(BasicBlock block) {
 		super(false, block.getMaterial());
 
 		this.block = block;
 		this.useNeighborBrightness = true;
 		
-		this.setBlockTextureName(BiomesAbroad.MODID + ":" + folder + "/" + block.getUnlocalizedName().substring(5));
-		this.setHardness(hardness);
-		this.setBlockName(name);
+		this.setBlockTextureName(BiomesAbroad.MODID + ":" + block.category + "/" + block.getUnlocalizedName().substring(5));
+		this.setBlockName(block.getUnlocalizedName().substring(5) + "_slab");
+		this.setHardness(MinecraftHelper.getBlockHardness(block));
 		this.setCreativeTab(BiomesAbroad.CREATIVE_TAB);
+		
+		this.recipes.put(new Object[] {"AAA", "   ", "   ", 'A', block}, 6);
+		this.recipes.put(new Object[] {"   ", "AAA", "   ", 'A', block}, 6);
+		this.recipes.put(new Object[] {"   ", "   ", "AAA", 'A', block}, 6);
 	}
 
 	@Override
@@ -39,29 +52,18 @@ public class BasicSlab extends BlockSlab {
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {
-
-		if (world.getBlock(x, y - 1, z) == this) {
-			world.setBlockToAir(x, y, z);
-			world.setBlock(x, y - 1, z, this.block);
-		}
-
+		if (world.getBlock(x, y - 1, z) == this) world.setBlock(x, y - 1, z, this.block);
+		if (world.getBlock(x, y + 1, z) == this) world.setBlock(x, y + 1, z, this.block);
+	}
+	
+	@Override
+	protected ItemStack createStackedBlock(int meta) {
+		return new ItemStack(this, 2, meta & 7);
 	}
 
 	@Override
-	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta) {
-
-		super.onBlockPlaced(world, x, y, z, side, hitX, hitY, hitZ, meta);
-
-		if (world.getBlock(x, y, z) == this) {
-			world.setBlock(x, y, z, this.block);
-		}
-
-		return super.onBlockPlaced(world, x, y, z, side, hitX, hitY, hitZ, meta);
-	}
-
-	@Override
-	protected ItemStack createStackedBlock(int par1) {
-		return new ItemStack(this, 2, par1 & 7);
+	public Map<Object[], Integer> getRecipes() {
+		return this.recipes;
 	}
 
 }

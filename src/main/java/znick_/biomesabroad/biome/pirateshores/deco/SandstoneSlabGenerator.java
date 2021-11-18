@@ -4,21 +4,21 @@ import java.util.Random;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import znick_.biomesabroad.block.BiomesAbroadBlocks;
+import znick_.biomesabroad.world.gen.Structure;
 
-public class SandstoneSlabGenerator extends WorldGenerator {
+public class SandstoneSlabGenerator implements Structure {
 
-	public boolean generate(World world, Random rand, int x, int y, int z) {
+	@Override
+	public void generate(World world, int x, int y, int z) {
+		world.setBlock(x, y, z, Blocks.stone_slab, 1, 3); 
+	}
 
-		if (world.getBlock(x, y - 1, z) != null) {
-			if (Blocks.stone_slab.canPlaceBlockAt(world, x, y, z) && world.getBlock(x, y - 1, z) == Blocks.sand) {
-				if (world.getBlock(x + 1, y, z) == Blocks.sand || world.getBlock(x - 1, y, z) == Blocks.sand || world.getBlock(x, y, z + 1) == Blocks.sand || world.getBlock(x, y, z - 1) == Blocks.sand) {
-					world.setBlock(x, y, z, Blocks.stone_slab, 1, 3); 
-				}
-			}
-		}
- 
+	@Override
+	public boolean canGenerateAt(World world, int x, int y, int z) {
+		if (world.getBlock(x, y - 1, z) == null) return false;
+		if (!Blocks.stone_slab.canPlaceBlockAt(world, x, y, z)) return false;
+		if (world.getBlock(x, y - 1, z) != Blocks.sand) return false;
+		if (world.getBlock(x + 1, y, z) != Blocks.sand && world.getBlock(x - 1, y, z) != Blocks.sand && world.getBlock(x, y, z + 1) != Blocks.sand && world.getBlock(x, y, z - 1) != Blocks.sand) return false;
 		return true;
 	}
 	

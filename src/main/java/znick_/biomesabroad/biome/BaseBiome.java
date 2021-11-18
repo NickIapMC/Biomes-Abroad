@@ -12,6 +12,7 @@ import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.BiomeDictionary.Type;
+import znick_.biomesabroad.world.gen.Structure;
 import znick_.biomesabroad.world.gen.StructureGenerator;
 
 public class BaseBiome extends BiomeGenBase {
@@ -20,7 +21,7 @@ public class BaseBiome extends BiomeGenBase {
 	private static volatile Class<? extends BiomeDecorator> current;
 	
 	private final Type type;
-	private final Map<WorldGenerator, Float> structures = new LinkedHashMap<WorldGenerator, Float>();
+	private final Map<Structure, Float> structures = new LinkedHashMap<Structure, Float>();
 	private final Class<? extends BiomeDecorator> decoratorClass;
 	private Integer grassColor;
 	private Integer foliageColor;
@@ -53,7 +54,7 @@ public class BaseBiome extends BiomeGenBase {
 	public void decorate(World world, Random rand, int chunkX, int chunkZ) {
 		super.decorate(world, rand, chunkX, chunkZ);
 		
-		for (Map.Entry<WorldGenerator, Float> entry : this.structures.entrySet()) {
+		for (Map.Entry<Structure, Float> entry : this.structures.entrySet()) {
 			StructureGenerator.generateStructure(world, rand, chunkX, chunkZ, this.rootHeight, entry.getKey(), entry.getValue()); 
 		}
 	}
@@ -68,23 +69,46 @@ public class BaseBiome extends BiomeGenBase {
 		return this.foliageColor != null ? this.foliageColor : super.getBiomeGrassColor(x, y, z);
 	}
 	
+	/**
+	 * Sets the color of the grass blocks in this biome.
+	 * @param color The color of the grass
+	 */
 	protected void setGrassColor(Color color) {
 		this.grassColor = color.getRGB();
 	}
 	
+	/**
+	 * Sets the color of foliage in this biome, such as leaves and tall grass.
+	 * @param color The color of the foliage
+	 */
 	protected void setFoliageColor(Color color) {
 		this.grassColor = color.getRGB();
 	}
 	
+	/**
+	 * Returns the type of biome to register as.
+	 */
 	public Type getType() {
 		return this.type;
 	}
 	
+	/**
+	 * Returns the next available biome ID and sets the current decorator class.
+	 * 
+	 * @param clazz The decorator class of the biome
+	 * @return The ID of the biome
+	 */
 	private static int getNextID(Class<? extends BiomeDecorator> clazz) {
 		current = clazz;
 		return nextID++;
 	}
 	
+	/**
+	 * Sets the top and filler block of this biome; More specifically, the blocks to replace grass and dirt
+	 * 
+	 * @param top The top block; traditionally grass
+	 * @param fill The bottom block; traditionally dirt
+	 */
 	protected void setBlocks(Block top, Block fill) {
 		this.topBlock = top;
 		this.fillerBlock = fill;
@@ -116,21 +140,32 @@ public class BaseBiome extends BiomeGenBase {
 	 * if greater than or equal to 1.
 	 */
 	protected void addFlower(final Block toGenerate, final int meta, final Block generateIn, float chance) {
-		this.structures.put(new WorldGenerator() {
+		this.structures.put(new Structure() {
+			
 			@Override
-			public boolean generate(World world, Random rand, int x, int y, int z) {
-				if (world.getBlock(x, y - 1, z) != null) {
-					if (toGenerate.canPlaceBlockAt(world, x, y, z) && world.getBlock(x, y - 1, z) == generateIn) {
-						world.setBlock(x, y, z, toGenerate, meta, 3);
-					}
-				}
+			public void generate(World world, int x, int y, int z) {
+				world.setBlock(x, y, z, toGenerate, meta, 3);
+			}
+
+			@Override
+			public boolean canGenerateAt(World world, int x, int y, int z) {
+				if (world.getBlock(x, y - 1, z) == null) return false;
+				if (!toGenerate.canPlaceBlockAt(world, x, y, z)) return false;
+				if (world.getBlock(x, y - 1, z) != generateIn) return false;
 				return true;
 			}
 			
 		}, chance);
 	}
 	
-	protected void addStructure(WorldGenerator structure, float chance) {
+	/**
+	 * Adds the structure to be generated randomly with the given chance.
+	 * 
+	 * @param structure The structure to generate
+	 * @param chance The percent change per chunk to generate the structure in that chunk if {@code chance <= 1}, or
+	 * the number of structures to generate per chunk if {@code chance >= 1}.
+	 */
+	protected void addStructure(Structure structure, float chance) {
 		this.structures.put(structure, chance);
 	}
 

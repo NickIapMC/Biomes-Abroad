@@ -21,7 +21,7 @@ public class StructureGenerator {
 	 * @param toGenerate The class containing the schematics for the structure
 	 * @param chance The amount of times per chunk to generate the structure, or the chance for it to generate on any given chunk
 	*/
-	public static void generateStructure(World world, Random rand, int chunkX, int chunkZ, float rootHeight, WorldGenerator toGenerate, float chance) {
+	public static void generateStructure(World world, Random rand, int chunkX, int chunkZ, float rootHeight, Structure toGenerate, float chance) {
 		if (chance < 1) {
 			if (Math.random() < chance) {
 				int randX = chunkX + rand.nextInt(8) - rand.nextInt(16);
@@ -29,7 +29,10 @@ public class StructureGenerator {
 				int randZ = chunkZ + rand.nextInt(8) - rand.nextInt(16);
 
 				for (int i = -100; i < 100; i++) {
-					toGenerate.generate(world, rand, randX, y + i, randZ);
+					if (toGenerate.canGenerateAt(world, randX, y + i, randZ)) {
+						toGenerate.generate(world, randX, y + i, randZ);
+						break;
+					}
 				}
 			}
 		} else {
@@ -39,7 +42,10 @@ public class StructureGenerator {
 				int randZ = chunkZ + rand.nextInt(8) - rand.nextInt(16);
 				
 				for (int i = -100; i < 100; i++) {
-					toGenerate.generate(world, rand, randX, y + i, randZ);
+					if (toGenerate.canGenerateAt(world, randX, y + i, randZ)) {
+						toGenerate.generate(world, randX, y + i, randZ);
+						break;
+					}
 				}
 			}
 		}

@@ -1,26 +1,13 @@
 package znick_.biomesabroad.biome.winterwonderland.deco;
 
-import java.util.Random;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenerator;
+import znick_.biomesabroad.world.gen.Structure;
 
-public class IceTreeGenerator extends WorldGenerator {
+public class IceTreeGenerator implements Structure {
 
-	public boolean generate(World world, Random rand, int x, int y, int z) {
-
-		if (world.getBlock(x, y - 1, z) != null) {
-			if (Blocks.ice.canPlaceBlockAt(world, x, y, z) && world.getBlock(x, y - 1, z) == Blocks.snow) {
-				this.makeTree(world, x, y, z);
-			}
-		}
-
-		return true;
-	}
-
-	public void makeTree(World world, int x, int y, int z) {
-
+	@Override
+	public void generate(World world, int x, int y, int z) {
 		for (int i = 0; i < 5; i++) {
 			world.setBlock(x, y + i, z, Blocks.packed_ice, 0, 3);
 		}
@@ -45,7 +32,14 @@ public class IceTreeGenerator extends WorldGenerator {
 		world.setBlock(x - 1, y + 6, z, Blocks.ice, 0, 3);
 		world.setBlock(x, y + 6, z + 1, Blocks.ice, 0, 3);
 		world.setBlock(x, y + 6, z - 1, Blocks.ice, 0, 3);
+	}
 
+	@Override
+	public boolean canGenerateAt(World world, int x, int y, int z) {
+		if (world.getBlock(x, y - 1, z) == null) return false;
+		if (!Blocks.ice.canPlaceBlockAt(world, x, y, z)) return false;
+		if (world.getBlock(x, y - 1, z) != Blocks.snow) return false;
+		return true;
 	}
 
 }
