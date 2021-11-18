@@ -32,7 +32,7 @@ public class BasicBlock extends Block {
 		this.setStepSound(sound);
 		this.setLightLevel(light);
 		this.setBlockTextureName(BiomesAbroad.MODID + ":" + name);
-		this.setCreativeTab(BiomesAbroad.tabBiomesAbroad);
+		this.setCreativeTab(BiomesAbroad.CREATIVE_TAB);
 	}
 
 	@Override

@@ -27,7 +27,7 @@ public class FlowerBlock extends BlockFlower {
 		this.category = folder;
 		this.ground = ground;
 		this.setStepSound(soundTypeGrass);
-		this.setCreativeTab(BiomesAbroad.tabBiomesAbroad);
+		this.setCreativeTab(BiomesAbroad.CREATIVE_TAB);
 		this.setBlockTextureName(BiomesAbroad.MODID + ":" + folder + "/" + name);
 	}
 

@@ -13,9 +13,6 @@ public class WorldTypeBiomesAbroad extends WorldType {
 
 	@Override
 	public GenLayer getBiomeLayer(long worldSeed, GenLayer parentLayer) {
-		GenLayer ret = new BiomesAbroadGenLayer(200L, parentLayer, this);
-		ret = GenLayerZoom.magnify(1000L, ret, 2);
-		ret = new GenLayerBiomeEdge(1000L, ret);
-		return ret;
+		return new GenLayerBiomeEdge(1000, GenLayerZoom.magnify(1000, new BiomesAbroadGenLayer(200, parentLayer, this), 2));
 	}
 }

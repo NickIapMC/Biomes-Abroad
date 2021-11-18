@@ -4,8 +4,6 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -23,29 +21,18 @@ public class BiomesAbroad {
 
 	public static final String MODID = "ba";
 	public static final WorldType WORLD_TYPE = new WorldTypeBiomesAbroad();
+	public static final CreativeTabs CREATIVE_TAB = new CreativeTabs("tabBiomesAbroad") {
+		@Override
+		public Item getTabIconItem() {
+			return Item.getItemFromBlock(BiomesAbroadBlocks.CARTOON_GRASS);
+		}
+	};
 	
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		
-	}
-
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		FileHelper.generateLangFile();
 		BiomesAbroadBlocks.init();
 		BiomesAbroadBiomes.init();
 	}
-
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
-		
-	}
-	
-	public static CreativeTabs tabBiomesAbroad = new CreativeTabs("tabBiomesAbroad") {
-		@Override
-		public Item getTabIconItem() {
-			return new ItemStack(BiomesAbroadBlocks.CARTOON_GRASS).getItem();
-		}
-	};
 	
 }

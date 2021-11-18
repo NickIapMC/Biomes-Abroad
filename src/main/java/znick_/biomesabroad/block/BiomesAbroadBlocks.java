@@ -74,6 +74,9 @@ public final class BiomesAbroadBlocks {
 	public static final Block ICE_FLOWER = new FlowerBlock("biomes/winter wonderland/foliage", "ice_flower", Blocks.snow);
 	public static final Block CANDY_CANE_BLOCK = new BasicBlock("candy_cane_block", "biomes/winter wonderland/cosmetic", 2.0F, Material.rock, Block.soundTypeStone, 0, true, false);
 
+	/**
+	 * Registers all custom Biomes Abroad blocks into the game.
+	 */
 	public static void init() {
 		for (Field field : BiomesAbroadBlocks.class.getDeclaredFields()) {
 			try {

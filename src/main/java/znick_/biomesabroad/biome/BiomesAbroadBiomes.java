@@ -39,6 +39,9 @@ public final class BiomesAbroadBiomes {
 	public static final BaseBiome WASTELAND = new WastelandBiome();
 	public static final BaseBiome WINTER_WONDERLAND = new WinterWonderlandBiome();
 	
+	/**
+	 * Registers all custom Biomes Abroad biomes into the game.
+	 */
 	public static void init() {
 		try {
 			for (Field field : BiomesAbroadBiomes.class.getDeclaredFields()) {

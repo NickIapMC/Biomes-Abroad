@@ -29,7 +29,7 @@ public class BasicSlab extends BlockSlab {
 		this.setBlockTextureName(BiomesAbroad.MODID + ":" + folder + "/" + block.getUnlocalizedName().substring(5));
 		this.setHardness(hardness);
 		this.setBlockName(name);
-		this.setCreativeTab(BiomesAbroad.tabBiomesAbroad);
+		this.setCreativeTab(BiomesAbroad.CREATIVE_TAB);
 	}
 
 	@Override
