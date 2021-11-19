@@ -34,6 +34,7 @@ public class FileHelper {
 			sb.append("itemGroup.tabBiomesAbroad=Biomes Abroad");
 			sb.append('\n');
 			sb.append("generator.Biomes Abroad=Biomes Abroad");
+			sb.append('\n');
 			
 			for (Field field : BiomesAbroadBlocks.class.getDeclaredFields()) {
 				if (field.get(null) instanceof Block) {

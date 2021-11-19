@@ -5,10 +5,11 @@ import java.lang.reflect.Field;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
 import znick_.biomesabroad.biome.cartoonhills.deco.CartoonTreeGenerator;
 import znick_.biomesabroad.biome.mushroomforest.deco.block.MushroomStem;
 import znick_.biomesabroad.biome.mushroomforest.deco.block.RedMushroomBlock;
-import znick_.biomesabroad.block.templates.BasicSapling;
+import znick_.biomesabroad.block.templates.SaplingBlock;
 import znick_.biomesabroad.block.templates.DirtBlock;
 import znick_.biomesabroad.block.templates.FlowerBlock;
 import znick_.biomesabroad.block.templates.GrassBlock;
@@ -19,21 +20,32 @@ import znick_.biomesabroad.block.templates.PlanksBlock;
 public final class BiomesAbroadBlocks {
 
 	//Autumnal Forest
-	public static final Block RED_LEAVES = new LeafBlock("red_leaves", "biomes/autumnal forest", null, null, 0.1);
-	public static final Block ORANGE_LEAVES = new LeafBlock("orange_leaves", "biomes/autumnal forest", null, null, 0.1);
-	public static final Block YELLOW_LEAVES = new LeafBlock("yellow_leaves", "biomes/autumnal forest", null, null, 0.1);
+	public static final Block RED_LEAVES = new LeafBlock("red_leaves", "biomes/autumnal forest", null, Blocks.log, 0.1);
+	public static final Block ORANGE_LEAVES = new LeafBlock("orange_leaves", "biomes/autumnal forest", null, Blocks.log, 0.1);
+	public static final Block YELLOW_LEAVES = new LeafBlock("yellow_leaves", "biomes/autumnal forest", null, Blocks.log, 0.1);
 	
 	//Cartoon Hills
+	
+	/**The dirt block used in the {@link znick_.biomesabroad.biome.BiomesAbroadBiomes#CARTOON_HILLS Cartoon Hills} biome.*/
 	public static final Block CARTOON_DIRT = new DirtBlock("cartoon_dirt", "biomes/cartoon hills/ground");
-	public static final Block CARTOON_GRASS = new GrassBlock("cartoon_grass", "biomes/cartoon hills/ground/grass", CARTOON_DIRT);
+	/**The log block used for generating Cartoon trees in the {@link znick_.biomesabroad.biome.BiomesAbroadBiomes#CARTOON_HILLS Cartoon Hills} biome.*/
 	public static final Block CARTOON_LOG = new LogBlock("cartoon_log", "biomes/cartoon hills/tree/log");
+	/**The leaf block used for generating Cartoon trees in the {@link znick_.biomesabroad.biome.BiomesAbroadBiomes#CARTOON_HILLS Cartoon Hills} biome.*/
 	public static final Block CARTOON_LEAVES = new LeafBlock("cartoon_leaves", "biomes/cartoon hills/tree", null, CARTOON_LOG, 0.2);
+	/**The tall grass block used in the {@link znick_.biomesabroad.biome.BiomesAbroadBiomes#CARTOON_HILLS Cartoon Hills} biome.*/
 	public static final Block CARTOON_GRASS_PLANT = new FlowerBlock("cartoon_grass_plant", "biomes/cartoon hills/foliage");
+	/**The cartoon planks block from trees in the {@link znick_.biomesabroad.biome.BiomesAbroadBiomes#CARTOON_HILLS Cartoon Hills} biome.*/
 	public static final Block CARTOON_PLANKS = new PlanksBlock("cartoon_planks", "biomes/cartoon hills/cosmetic");
+	/**The cartoon planks slab from trees in the {@link znick_.biomesabroad.biome.BiomesAbroadBiomes#CARTOON_HILLS Cartoon Hills} biome.*/
 	public static final Block CARTOON_PLANKS_SLAB = new BasicSlab((BasicBlock) BiomesAbroadBlocks.CARTOON_PLANKS);
+	/**The cartoon planks stairs from trees in the {@link znick_.biomesabroad.biome.BiomesAbroadBiomes#CARTOON_HILLS Cartoon Hills} biome.*/
 	public static final Block CARTOON_PLANKS_STAIRS = new BasicStairs(CARTOON_PLANKS);
+	/**The cartoon poppies that can be found in the {@link znick_.biomesabroad.biome.BiomesAbroadBiomes#CARTOON_HILLS Cartoon Hills} biome.*/
 	public static final Block CARTOON_POPPY = new FlowerBlock("cartoon_poppy", "biomes/cartoon hills/foliage");
-	public static final Block CARTOON_SAPLING = new BasicSapling("cartoon_sapling", "biomes/cartoon hills/foliage", new CartoonTreeGenerator());
+	/**The sapling for cartoon trees from the {@link znick_.biomesabroad.biome.BiomesAbroadBiomes#CARTOON_HILLS Cartoon Hills} biome.*/
+	public static final Block CARTOON_SAPLING = new SaplingBlock("cartoon_sapling", "biomes/cartoon hills/foliage", new CartoonTreeGenerator());
+	/**The grass block used in the {@link znick_.biomesabroad.biome.BiomesAbroadBiomes#CARTOON_HILLS Cartoon Hills} biome.*/
+	public static final Block CARTOON_GRASS = new GrassBlock("cartoon_grass", "biomes/cartoon hills/ground/grass", CARTOON_DIRT, CARTOON_GRASS_PLANT, CARTOON_POPPY);
 	
 	//Cherry Blossom Forest
 	public static final Block CHERRY_DIRT = new DirtBlock("cherry_dirt", "biomes/cherry forest/ground");
@@ -65,7 +77,7 @@ public final class BiomesAbroadBlocks {
 	
 	//Wasteland
 	public static final Block DEAD_GRASS = new DirtBlock("dead_grass", "biomes/wasteland/ground");
-	public static final Block TUMBLEWEED = new LeafBlock("tumbleweed", "biomes/wasteland/foliage", null, null, 0);
+	public static final Block TUMBLEWEED = new LeafBlock("tumbleweed", "biomes/wasteland/foliage");
 	public static final Block DEAD_LOG = new LogBlock("dead_log", "biomes/wasteland/tree/log");
 	public static final Block DEAD_LEAVES = new LeafBlock("dead_leaves", "biomes/wasteland/tree", null, DEAD_LOG, 0.025);
 	public static final Block DEAD_PLANKS = new PlanksBlock("dead_planks", "biomes/wasteland/cosmetic");

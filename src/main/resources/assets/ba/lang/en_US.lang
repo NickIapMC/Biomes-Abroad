@@ -1,8 +1,9 @@
-itemGroup.tabBiomesAbroad=Biomes Abroadgenerator.Biomes Abroad=Biomes Abroadtile.red_leaves.name=Red Leaves
+itemGroup.tabBiomesAbroad=Biomes Abroad
+generator.Biomes Abroad=Biomes Abroad
+tile.red_leaves.name=Red Leaves
 tile.orange_leaves.name=Orange Leaves
 tile.yellow_leaves.name=Yellow Leaves
 tile.cartoon_dirt.name=Cartoon Dirt
-tile.cartoon_grass.name=Cartoon Grass
 tile.cartoon_log.name=Cartoon Log
 tile.cartoon_leaves.name=Cartoon Leaves
 tile.cartoon_grass_plant.name=Cartoon Grass Plant
@@ -11,6 +12,7 @@ tile.cartoon_planks_slab.name=Cartoon Planks Slab
 tile.cartoon_planks_stairs.name=Cartoon Planks Stairs
 tile.cartoon_poppy.name=Cartoon Poppy
 tile.cartoon_sapling.name=Cartoon Sapling
+tile.cartoon_grass.name=Cartoon Grass
 tile.cherry_dirt.name=Cherry Dirt
 tile.cherry_grass.name=Cherry Grass
 tile.cherry_grass_plant.name=Cherry Grass Plant

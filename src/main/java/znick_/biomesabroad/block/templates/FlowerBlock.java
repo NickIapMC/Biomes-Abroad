@@ -4,38 +4,33 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
-import net.minecraft.block.material.Material;
+import net.minecraft.block.BlockGrass;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraftforge.common.EnumPlantType;
 import znick_.biomesabroad.BiomesAbroad;
 
 public class FlowerBlock extends BlockFlower {
 
-	public String name;
-	public String category;
+	private final String name;
+	private final String category;
+	private final IIcon[] icons = new IIcon[6];
 	
 	public FlowerBlock(String name, String folder) {
 		super(0);
 		this.setBlockName(name);
 		this.name = name;
 		this.category = folder;
-		this.setStepSound(soundTypeGrass);
+		this.setStepSound(Block.soundTypeGrass);
 		this.setCreativeTab(BiomesAbroad.CREATIVE_TAB);
 		this.setBlockTextureName(BiomesAbroad.MODID + ":" + folder + "/" + name);
 	}
-
-	public IIcon[] icons = new IIcon[6];
 	
 	@Override
 	public void registerBlockIcons(IIconRegister reg) {
-		for (int i = 0; i < 6; i++) {
-			this.icons[i] = reg.registerIcon(BiomesAbroad.MODID + ":" + this.category + "/" + this.name);
-		}
+		for (int i = 0; i < 6; i++) this.icons[i] = reg.registerIcon(BiomesAbroad.MODID + ":" + this.category + "/" + this.name);
 	}
 
 	@Override
@@ -50,7 +45,7 @@ public class FlowerBlock extends BlockFlower {
 	
 	@Override
 	protected boolean canPlaceBlockOn(Block block) {
-        return true;
+        return block instanceof BlockGrass || block instanceof GrassBlock;
     }
 
 }

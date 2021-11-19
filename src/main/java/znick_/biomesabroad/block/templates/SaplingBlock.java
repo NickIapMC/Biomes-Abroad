@@ -11,7 +11,7 @@ import znick_.biomesabroad.world.gen.Structure;
  * 
  * @author zNick_
  */
-public class BasicSapling extends FlowerBlock implements IGrowable {
+public class SaplingBlock extends FlowerBlock implements IGrowable {
 
 	/**The tree generator*/
 	private final Structure treeGenerator;
@@ -23,7 +23,7 @@ public class BasicSapling extends FlowerBlock implements IGrowable {
 	 * @param folder The location of the texture of the sapling
 	 * @param treeGenerator The {@code Structure} to generate the tree
 	 */
-	public BasicSapling(String name, String folder, Structure treeGenerator) {
+	public SaplingBlock(String name, String folder, Structure treeGenerator) {
 		super(name, folder);
 		this.treeGenerator = treeGenerator;
 	}
